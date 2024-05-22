@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Info Producto</title>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="../StylesNewProduct.CSS">
+
+<style>
+    #imagen-previa {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px; 
+    margin-bottom: 20px;
+    }
+</style>
+
+</head>
+
+
+
+<body >
+
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col-lg-2 col-md-3 sb Sidebar d-none d-sm-block"   >
+                       
+                    <div class="col">
+                        <ul>
+                            <a href="Perfil01.html"><li>Mi perfil</li></a>
+                            <a href="Chat.html"><li>Mis chats</li></a>
+                            <a href="../PaginaInicio.html"><li>Principal</li></a>
+                            
+                            <a href="../LoginVentanas/Login.html"><li>Cerrar Sesion</li></a>
+
+                            
+
+                        </ul>
+                    </div>
+
+
+            </div>
+            <div class="col-lg-10 col-md-9 mb-5">
+                <div class="row buscarDiv">
+
+                    <div class="row logoRow">
+                        <div class="col-11"><h1>LOGO</h1></div>
+                        <div class="col-1"><a href="Carrito.html">
+                            <img src="../../Public/cart.png" alt="Carrito" class="img-fluid h-50" alt="Responsive image">
+
+
+                        </a></div>
+
+                    </div>
+
+                    <div class="col">
+                    <hr>
+                <input type="" class="form-control buscarTXT" id="exampleInputEmail1" aria-describedby="" placeholder="Buscar">
+                <a href="../Buscar.html"><button type="button" class="btn btn-dark">Buscar</button> </a>
+                <hr>
+                </div>
+                </div>
+                <!----img src="Public/doggo.png" alt="Logo perro" width="87" class="img-fluid" alt="Responsive image" -->   
+
+                &nbsp 
+
+                <div class="container-fluid tjtNewPro">
+                   <h2 class="ngt">Nuevo producto</h2><hr>
+
+                   <form id="newProductForm" method="POST" enctype="multipart/form-data">
+                    <div class="row h-100 fotosNP">
+                        <div class="col EspForms">
+                            <div class="form-group mb-2">
+                                <label for="input-imagen" class="btn btn-primary btn-imagen">
+                                    <i class="fa fa-image"></i>
+                                </label>
+                                <label for="imagen">Imagen de Producto</label>
+                                <input type="file" name="img" class="mt-4 input-file visually-hidden" id="input-imagen" onchange="mostrarImagen()" accept="image/*" required>
+                            </div>
+                            <img id="imagen-previa" src="#" alt="Vista previa de la imagen" style="display: none;">
+                        </div>
+                
+                        <div class="col-6 derecha">
+                            <div class="row centerV">
+                                <h4 class="titulo mitadRowD">Cantidad disponible:</h4> 
+                                <input class="form-control mitadRowDF" placeholder="1 unidades" name="stock">
+                            </div>
+                            <div class="row">
+                                <h4 class="titulo mitadRowD">Precio:</h4> 
+                                <input class="form-control mitadRowDF" placeholder="$99.99" name="precio">
+                            </div>
+                            <div class="row">
+                                <h4 class="titulo centerH">
+                                    <input class="form-check-input mx-2" type="checkbox" value="" name="cotizable"> Cotizable
+                                </h4>
+                            </div>
+                            <div class="row centerH">
+                                <button id="Novo" type="submit" class="btn btn-dark btnNP">Crear producto</button>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="row px-4">
+                        <div class="col-6">
+                            <div class="row">
+                                <h4 class="titulo mitadRowI">Nombre:</h4> 
+                                <input class="form-control mitadRowIF" placeholder="MiProducto" name="nombre">
+                            </div>
+                            <div class="row">
+                                <div class="d-flex">
+                                    <h4 class="titulo mitadRowI">Descripción:</h4> 
+                                    <input class="form-control w-50" placeholder="MiProducto" name="descripcion">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h4 class="titulo mitadRowI">Categoría existente:</h4> 
+                                <select class="form-control mitadRowIF" name="categoria">
+                                    <option>Cocina</option>
+                                    <option>Decoración</option>
+                                    <option>Arte</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+
+                    
+
+
+            </div>
+
+        
+            <footer>JULIAN&NACHO SHOP All rights reserved</footer>
+
+        </div>
+
+
+    </div>
+
+    <script>
+        function mostrarImagen() {
+          var archivo = document.getElementById('input-imagen').files[0];
+          var vistaPrevia = document.getElementById('imagen-previa');
+          var lector = new FileReader();
+      
+          lector.onloadend = function() {
+            vistaPrevia.src = lector.result;
+            vistaPrevia.style.display = 'block';
+          }
+      
+          if (archivo) {
+            lector.readAsDataURL(archivo);
+          } else {
+            vistaPrevia.src = '';
+            vistaPrevia.style.display = 'none';
+          }
+        }
+
+        $('#newProductForm').submit(function(event) {
+            event.preventDefault();
+
+            var formData = new FormData(this);
+
+            $.ajax({
+                type: 'POST',
+                url: '../../Controllers/newProduct.php',
+                data: formData,
+                contentType: false, 
+                processData: false, 
+                success: function(response) {
+                    window.location.href = 'Perfil01.html';
+                },
+                error: function() {
+                    $('#message').html("Hubo un error en la solicitud.");
+                }
+            });
+        });
+    </script>
+
+</body>

@@ -1,0 +1,97 @@
+#LoginSq{
+    background-color: #2d8161;
+    /*
+    background-color: #142e24; 
+    no usar background-color: rgba(39, 78, 39, 0.726);
+    */
+border-radius: 10px;
+color:aliceblue;
+
+width: 40%;
+height: 40%;
+
+
+position: relative;
+margin-top: 5%;
+margin-left: auto;
+margin-right: auto;
+
+}
+
+
+
+#NewUserSq{
+    background-color: #2d8161;
+
+border-radius: 10px;
+color:aliceblue;
+
+margin-top: 5%;
+margin-left: 10%;
+margin-right: 10%;
+
+}
+
+
+
+#LoginInfo{
+
+    padding: 2%;
+    margin-bottom: 3%;
+}
+
+body{
+    background-color: rgba(222, 248, 222, 0.726);
+}
+
+footer {
+    background-color: #0d0f0f;
+    position: absolute;
+    text-align: center;
+    padding: 8px;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    color: white;
+    bottom: 0;
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.EspForms{
+
+    padding: 16px;
+    margin:10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Botones{
+
+    padding: 12px;
+    margin:8px;
+    display: flex;
+}
+
+
+h2{font-size: 1.5em;}
+
+.chBx{
+display:flex;
+justify-content: end;
+}
+
+
+.centerV{display: flex;
+    align-items: center;
+  
+  }
+  .centerH{display:flex;
+    justify-content: center;
+    align-items: center;
+  
+  
+  }

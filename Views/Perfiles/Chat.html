@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Mis Ventas</title>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="../StylesNewProduct.CSS">
+
+<style>
+    .chat-container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            height: 70vh;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #358b47;
+        }
+
+        .header img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .header h2 {
+            margin: 0;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .message {
+            background-color: #409f192e;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .userA {
+            text-align: left;
+            color: blue;
+        }
+
+        .userB {
+            text-align: right;
+            color: green;
+        }
+
+        .new-message-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .new-message-input {
+            flex: 1;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .send-message-btn {
+            padding: 8px;
+            margin-left: 10px;
+        }
+</style>
+
+</head>
+
+
+
+<body >
+
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col-lg-2 col-md-3 sb Sidebar d-none d-sm-block"   >
+                <div class="col" >
+                    <ul >
+                        <a href="../PaginaInicio.html"><li>Principal</li></a>
+                        <div id="btnLogin">
+                            <a href="../LoginVentanas/Login.html"><li>Iniciar Sesion</li></a>
+                        </div>
+                        <div id="btnPerfil" class="d-none">
+                            <a href="Perfiles/Perfil01.html"><li>Mi Perfil</li></a>
+                            <a href="Perfiles/Chat.html"><li>Mis Chats</li></a>
+                            <a href="Perfiles/Categorias.html"><li>Categorias</li></a>
+                            <a href="#" id="logout"><li>Cerrar Sesion</li></a>
+                        </div>                    
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-lg-10 col-md-9" >
+                
+
+              <div class="container-fluid w-100 h-100 allChat" > 
+                
+                <div class="row buscarDiv chatRowUno">
+
+                    <div class="row logoRow">
+                        <div class="col-11"><h1>LOGO</h1></div>
+                        <div class="col-1"><a href="Carrito.html">
+                            <img src="../../Public/cart.png" alt="Carrito" class="img-fluid h-50" alt="Responsive image">
+
+
+                        </a></div>
+
+                    </div>
+
+
+                                    <div class="col">
+                                    <hr>
+                                <input type="" class="form-control buscarTXT" id="exampleInputEmail1" aria-describedby="" placeholder="Buscar">
+                                <button type="button" class="btn btn-dark">Buscar</button> 
+                                <hr>
+                                </div>
+                </div>
+                                <!----img src="Public/doggo.png" alt="Logo perro" width="87" class="img-fluid" alt="Responsive image" -->   
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mt-5 chat-container">
+                                            <!-- Sección del encabezado del chat (nombre e imagen del usuario) -->
+                                            <div class="header">
+                                                <img src="../../Public/profileFoto.jpg" alt="Nombre del Usuario">
+                                                <h2>Nombre del Usuario</h2>
+                                            </div>
+                                    
+                                            <!-- Sección de mensajes del chat -->
+                                            <div class="messages">
+                                                <!-- Mensajes del chat -->
+                                                <div class="message userA">Chat otro user</div>
+                                                <div class="message userB">Chat mi user</div>
+                                            </div>
+                                    
+                                            <!-- Sección para enviar nuevos mensajes -->
+                                            <div class="new-message-container">
+                                                <input type="text" class="new-message-input" placeholder="Escribe tu mensaje...">
+                                                <button class="send-message-btn" id="btn">Enviar Cotizacion</button>
+                                                <button class="send-message-btn">Enviar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+              </div>
+
+            </div>
+
+        
+            <footer>JULIAN&NACHO SHOP All rights reserved</footer>
+
+            <dialog id="dlg" class="dlgLista" >
+                            
+                <div  class="container" id="modalProducto">
+        
+                    <h3> Cotizacion</h3>
+                    <div class="row">
+                        <div class="col-12">
+                    <h4>Precio: <input  class="form-control mitadRowIF" placeholder="$99.99" ></h4>
+                    <h5>Nueva descripcion: <input  class="form-control mitadRowIF" placeholder="Descrip" ></h5>
+                </div>
+
+                      
+                    
+                    <button type="button" class="btn btn-light bgBtnPerfil" id="btn2">Cerrar</button>
+                    <button type="button" class="btn btn-light bgBtnPerfil" id="btn3">Enviar</button>
+                </div>   
+        
+            </dialog>
+
+
+
+        </div>
+
+
+    </div>
+
+    
+
+
+<script src="ShowChat.js"></script>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '../../Controllers/sesion.php', // Cambia esta URL al archivo PHP que verifica la sesión
+            method: 'GET',
+            success: function(response) {
+                if (response === 'success') {
+                    console.log()
+                    $('#btnLogin').addClass('d-none');
+                    $('#btnPerfil').removeClass('d-none');
+                } else {
+                    console.log("No sesion")
+                }
+            },
+            error: function() {
+                $('#session-status').text('Error al verificar la sesión');
+            }
+        });
+
+        $('#logout').click(function(e) {
+                e.preventDefault(); // Evita el comportamiento predeterminado del enlace
+                window.location.href = '../Controllers/logout.php'; // Redirige al script de logout
+        });
+    });
+</script>
+
+</body>

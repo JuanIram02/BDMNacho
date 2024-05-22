@@ -1,0 +1,448 @@
+html{
+  min-height: 100vh;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    
+
+    background-color: rgba(222, 248, 222, 0.726);
+    color: #333;
+
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+}
+
+/**/
+.USUARIOUNO{
+  display: none;
+}
+
+.USERVENDE{display: none;}
+.USERADMIN{display: none;}
+
+.bgBtnPerfil{
+width: 33%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+.bgBtnVende{
+  width: 70%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+/**/
+
+
+
+
+
+.logoRow{
+  margin-top: 2%;
+}
+
+.Separacion{
+  margin-top: 1%;
+}
+
+footer {
+    background-color: hwb(180 11% 86%);
+    position:static;
+    text-align: center;
+    padding: 8px;
+    width: 100%;
+    height: 40px;
+    color: white;
+
+    bottom: 0;
+  }
+
+/*
+  #SideB{
+
+    background-color: #0a2b1e;
+    color: rgb(255, 255, 8);
+    position:absolute;
+    padding: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  } */
+
+
+.products{
+  margin-right: auto;
+
+}
+  
+  .tarjeta{
+    background-color: #2d8161;
+
+    margin-left: 2%;
+
+  }
+
+  .tarjetaPerfil{
+    background-color: rgba(39, 78, 39, 0.726);
+
+    margin: 1%;
+
+  }
+
+  #SideProfile{  /*Carrito de compra*/
+
+    margin-top: 5%;
+    background-color: rgb(238, 238, 28);
+    height: fit-content;
+    
+  }
+
+
+  #ULSidebar{
+
+    list-style: none;
+  }
+
+
+
+
+  .Sidebar{
+      background-color: #142e24;
+    padding-top: 2%;
+    min-height: 100vh;
+
+  }
+
+
+  .Sidebar ul li{
+      width: 80%;
+    color:aliceblue;
+    text-align: center;
+    padding: 15px 10px;
+    list-style: none;
+    font-size: large;
+    border-bottom: 1px solid #187753;
+  }
+
+
+
+.LoginInfo{
+
+  background-color: #187753;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 5%;
+  margin-right: 24%;
+  padding: 1%;
+  border-radius: 1%;
+}
+
+
+
+
+  .EspForms{
+
+    padding: 16px;
+    margin:10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Botones{
+
+    padding: 12px;
+    margin:8px;
+    display: flex;
+}
+
+.pFoto{
+
+  
+  border-radius: 50%;
+}
+
+  /*              Listas CSS              */
+
+  .tjtLista{
+
+    background-color: #2d8161;
+    color:#242323;
+    border-radius: 2%;
+    padding: 3%;
+    margin-bottom: 1.5%;
+    margin-left: 2%;
+
+    width: 100%;
+
+  
+  
+  }
+
+
+  .nombreL{
+    font-weight: bold;
+  }
+  
+  .imgLista{
+    align-self: center;
+    border-radius: 60%;
+    margin-left: auto;
+  
+  
+  }
+
+    /*              Modal new producto              */
+
+    .dlgLista{
+      border-color: #ffffff00;
+      background-color: #1d966d;
+
+      width: max-content;
+      height: max-content;
+      font-family: 'Arial', sans-serif;
+    }
+
+.buscarBTN{
+  float: right;
+}
+.buscarDiv{
+      background-color: #1d966d;
+
+  
+  display: flex;
+  justify-content: center;
+
+}
+
+.buscarTXT{
+  float: left;
+  margin-right: 5px;
+
+
+  width: 75%;
+
+}
+
+.totalP{
+  width: 28%;
+}
+
+.busqueda{margin-top: 16px;
+  color: #000000b2;
+
+}
+
+.tjtUsuario{
+text-align: center;
+  justify-content: center;
+
+}
+
+.userRow{
+  padding: 1%;
+}
+
+.page-link{
+
+  background-color: #242323;
+  color: aliceblue;
+}
+
+.nation{
+  margin-left: auto;
+}
+
+/*Styles Tablas venta*/
+.table-dark{
+
+  text-align: center;
+  --bs-table-bg: #12583eef;
+}
+
+.infoT{
+  text-align: center;
+}
+
+
+/*||||||||||||||Styles producto info y new Producto|||||||||||||*/
+
+.btnNP{
+  margin-top: 8%;
+  width: 50%;
+  height: 67px;
+
+}
+
+.imgInfoP{
+background-color: white;
+
+}
+
+.proInfo{
+  margin-left: 1%;
+  margin-top: 2%;
+}
+
+.rowCart{ 
+  text-align: center;
+}
+
+.fotosNP{
+  padding-left: 1%;
+}
+
+.tjtNewPro{
+  border-radius: 2%;
+  background-color: #187753;
+
+  padding: 2%;
+}
+
+.mitadRowI{ /*Forms de la izquierda*/
+  width: 30%;
+}
+
+.mitadRowIF{
+  width: 44%;
+  margin: 3%;
+  margin-left: 0%;
+}
+
+.fDesc{
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.mitadRowD{/*Forms de la derecha*/
+  width: 50%;
+}
+
+.mitadRowDF{
+  width: 38%;
+  margin: 3%;
+  margin-left: 0%;
+}
+
+/*  Estilos pa todo */
+.ngt{ /*Negrita*/
+  font-weight: bold;
+
+}
+
+.centerV{display: flex;
+  align-items: center;
+
+}
+.centerH{display:flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.rowCart hr{
+height: 12px;
+  
+  width: 75%;/*
+  border-color: rgb(255, 230, 0);*/
+}
+
+ h4.titulo{
+  margin-top:3%;
+  font-weight: bold;
+}
+
+.derecha{
+  text-align: right;
+  align-content: right;
+}
+
+/*  chat ventana  */
+.allChat{
+  margin: 0; padding: 0;
+}
+
+.chatRowUno{
+  height: 17%;
+
+}
+.chatRowDos{
+  height: 83%;
+
+}
+.chatUsers{
+  background-color: #81eec4;
+  border-right: solid;
+  border-right-color: black;
+  border-right-width: 2px;
+
+}
+
+.chatMsj{
+  background-color: #d6f2ff;
+}
+.chatTxt{
+  background-color: white;
+  position: sticky;
+  bottom: 0;
+}
+
+.userMsj{
+  margin: 1%;
+  padding: 2%;
+  color: #ffffff;
+  width: max-content;
+}
+.userA{
+background-color: rgb(53, 116, 92);
+
+}
+.userB{
+  background-color: #142e24;
+}
+
+
+.rListas{
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+/*Lista en grande*/
+.listaTitular{
+margin: 2% ;
+background-color: #1d966e48;
+border-radius: 3%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+
+
+}
+
+.proLista{
+
+  margin-left: 2%;
+  margin-bottom: 2%;
+}
+/*
+.listaName{
+}*/
+
+.dlgLista{
+
+  position: relative;
+
+  top: 95%;
+
+  align-items: center;
+
+}

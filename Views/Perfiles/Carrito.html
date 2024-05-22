@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Mis Ventas</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../StylesNewProduct.CSS">
+
+
+</head>
+
+
+
+<body >
+
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col-lg-2 col-md-3 sb Sidebar d-none d-sm-block"   >
+                       
+                    <div class="col">
+                        <ul>                            
+                            <a href="Perfil01.html"><li>Mi perfil</li></a>
+                            <a href="Chat.html"><li>Mis chats</li></a>
+                            <a href="../PaginaInicio.html"><li>Principal</li></a>
+                            
+                            <a href="../LoginVentanas/Login.html"><li>Cerrar Sesion</li></a>
+
+                            
+
+                        </ul>
+                    </div>
+
+
+            </div>
+            <div class="col-lg-10 col-md-9" >
+                <div class="row buscarDiv">
+                    
+                    
+                        <div class="row logoRow">
+                            <div class="col-11"><h1>LOGO</h1></div>
+                            <div class="col-1"><a href="Carrito.html">
+                                <img src="../../Public/cart.png" alt="Carrito" class="img-fluid h-50" alt="Responsive image">
+    
+    
+                            </a></div>
+    
+                        </div>
+
+                    <div class="col">
+                    <hr>
+                <input type="" class="form-control buscarTXT" id="exampleInputEmail1" aria-describedby="" placeholder="Buscar">
+                <button type="button" class="btn btn-dark">Buscar</button> 
+                <hr>
+                </div>
+                </div>
+                <!----img src="Public/doggo.png" alt="Logo perro" width="87" class="img-fluid" alt="Responsive image" -->   
+
+                &nbsp 
+                   <h2>Carrito</h2><hr>
+
+                   <div class="row h-125"> <!--                        <div class="col-2"><img src="../../Public/doggo.png" class="w-100 imgInfoP"  ></div>
+Fotos-->
+
+                        <div class="container-fluid">
+                    <div class="row justify-content-around rowCart" >
+                        <div class="col-2"><h3 class="ngt">Foto</h3></div>
+                        <div class="col-2"><h3 class="ngt">Nombre</h3></div>
+                        <div class="col-2"><h3 class="ngt">Cantidad</h3></div>
+                        <div class="col-2"><h3 class="ngt">Precio</h3></div>
+                   <hr> </div>
+                    <div class="row justify-content-around rowCart">
+                        <div class="col-2">     <img src="../../Public/doggo.png" class="w-25 imgInfoP"  ></div>
+                        <div class="col-2"><h4>Poster Perro</h4></div>
+                        <div class="col-2"><h4>x1</h4></div>
+                        <div class="col-2"><h4>$24.00</h4></div>
+                        
+                        <hr> </div>
+
+                    <div class="row justify-content-around rowCart">
+                        <div class="col-2">     <img src="../../Public/doggo.png" class="w-25 imgInfoP"  ></div>
+                        <div class="col-2"><h4>Poster Perro</h4></div>
+                        <div class="col-2"><h4>x1</h4></div>
+                        <div class="col-2"><h4>$24.00</h4></div>
+                        
+                        <hr> </div>
+
+                    </div>
+
+                    <div class="row justify-content-around rowCart">
+                        <div class="col-2"></div>
+                        <div class="col-2"></div>
+                        <div class="col-2"><h4>Total:</h4></div>
+                        <div class="col-2"><h4>$48.00</h4></div>
+                        
+                        <hr> </div>
+
+                    </div>
+
+                    <div class="d-flex flex-row-reverse">
+                        <button class="mx-5 btn btn-dark" id="pagar" data-toggle="modal" data-target="#modalPago">Pagar</button>
+                    </div> 
+                   </div>
+
+                   <div class="modal fade" id="modalPago" tabindex="-1" role="dialog" aria-labelledby="modalPagoLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalPagoLabel">Datos de la Tarjeta</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Aquí puedes agregar campos para ingresar los datos de la tarjeta -->
+                                <label for="numeroTarjeta">Número de Tarjeta:</label>
+                                <input type="text" class="form-control" id="numeroTarjeta">
+
+                                <paypal>
+                                <!-- Otros campos y etiquetas según tus necesidades -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary">Realizar Pago</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                   <!--Tarjeta de producto-->
+
+
+
+            </div>
+
+            
+        
+            <footer>JULIAN&NACHO SHOP All rights reserved</footer>
+
+        </div>
+
+
+    </div>
+
+    
+
+
+
+</body>
