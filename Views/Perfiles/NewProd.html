@@ -88,11 +88,11 @@
                         <div class="col-6 derecha">
                             <div class="row centerV">
                                 <h4 class="titulo mitadRowD">Cantidad disponible:</h4> 
-                                <input class="form-control mitadRowDF" placeholder="1 unidades" name="stock">
+                                <input class="form-control mitadRowDF" placeholder="1 unidades" name="stock" required>
                             </div>
                             <div class="row">
                                 <h4 class="titulo mitadRowD">Precio:</h4> 
-                                <input class="form-control mitadRowDF" placeholder="$99.99" name="precio">
+                                <input class="form-control mitadRowDF" placeholder="$99.99" name="precio" required>
                             </div>
                             <div class="row">
                                 <h4 class="titulo centerH">
@@ -108,25 +108,48 @@
                         <div class="col-6">
                             <div class="row">
                                 <h4 class="titulo mitadRowI">Nombre:</h4> 
-                                <input class="form-control mitadRowIF" placeholder="MiProducto" name="nombre">
+                                <input class="form-control mitadRowIF" placeholder="MiProducto" name="nombre" required>
                             </div>
                             <div class="row">
                                 <div class="d-flex">
                                     <h4 class="titulo mitadRowI">Descripción:</h4> 
-                                    <input class="form-control w-50" placeholder="MiProducto" name="descripcion">
+                                    <input class="form-control w-50" placeholder="MiProducto" name="descripcion" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <h4 class="titulo mitadRowI">Categoría existente:</h4> 
-                                <select class="form-control mitadRowIF" name="categoria">
+                                <select id="categoriaSelect" class="form-control mitadRowIF" name="categoria">
                                     <option>Cocina</option>
                                     <option>Decoración</option>
                                     <option>Arte</option>
                                 </select>
                             </div>
+                            <div class="row centerH">
+                                <button id="btnCat" type="button" class="btn btn-dark btnNC">Nueva Categoria</button>
+                            </div>
                         </div>
                     </div>
                 </form>
+
+                <dialog id="dlg" class="dlgLista" >
+                        
+                    <div  class="container" id="modalProducto">
+            
+                        <form id="newCategoriaForm" method="POST" enctype="multipart/form-data">
+                            <h3> Nueva Categoria</h3>
+                                <div class="col">
+                                    <h4>Nombre: <input name="nombre" class="form-control" placeholder="Nombre" required></h4>                    
+                                            
+                                    <div class="d-flex">
+                                        <button type="button" class="btn btn-light mx-2" id="btn2">Cerrar</button>
+                                        <button type="submit" class="btn btn-light" id="btn3">Crear</button>
+                                    </div> 
+                                </div>  
+                        </form>                             
+                    </div>   
+                
+                </dialog>
+
                 </div>
 
                     
@@ -179,6 +202,56 @@
                     $('#message').html("Hubo un error en la solicitud.");
                 }
             });
+        });
+
+        $("#btnCat").click(function(){
+                document.getElementById('dlg').showModal();
+            });
+
+        $("#btn2").click(function(){
+            document.getElementById('dlg').close();
+        });
+
+        $('#newCategoriaForm').submit(function(){
+            var formData = new FormData(this);
+            $.ajax({
+                type: 'POST',
+                url: '../../Controllers/newCategoria.php',
+                data: formData,
+                contentType: false, 
+                processData: false, 
+                success: function(response) {
+                    alert("Categoria creada");
+                },
+                error: function() {
+                    $('#message').html("Hubo un error en la solicitud.");
+                }
+            });
+            document.getElementById('dlg').close();
+        });
+
+        $.ajax({
+            url: '../../Controllers/cargaCategorias.php', 
+            method: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                console.log(response);
+                if (response.length > 0) {
+                    var $select = $('#categoriaSelect');
+                    // Limpia el select actual
+                    $select.empty();
+                    // Añade las nuevas opciones
+                    response.forEach(function(categoria) {
+                        // Asumiendo que cada objeto en response tiene un campo "nombre"
+                        $select.append('<option value="' + categoria.ID + '">' + categoria.Nombre + '</option>');
+                    });
+                } else {
+                    console.error('Respuesta inesperada:', response);
+                }
+            },
+            error: function(error) {
+                console.log('Error al obtener datos del perfil:', error);
+            }
         });
     </script>
 

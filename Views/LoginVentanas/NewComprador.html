@@ -232,22 +232,22 @@
         var formData = new FormData(this);
 
         $.ajax({
-            type: 'POST',
-            url: '../../Controllers/register.php',
-            data: formData,
-            contentType: false, 
-            processData: false, 
-            success: function(response) {
-                if (response === 'success') {
-                    window.location.href = '../PaginaInicio.html';
-                } else {
-                    $('#message').html(response);
+                type: 'POST',
+                url: '../../Controllers/register.php',
+                data: formData,
+                contentType: false, 
+                processData: false, 
+                success: function(response) {
+                    if (response === 'success') {
+                        window.location.href = '../PaginaInicio.html';
+                    } else {
+                        $('#message').html(response);
+                    }
+                },
+                error: function(response) {
+                    $('#message').html("Hubo un error en la solicitud.");
                 }
-            },
-            error: function() {
-                $('#message').html("Hubo un error en la solicitud.");
-            }
-        });
+            });
     });
 
   

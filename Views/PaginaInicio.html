@@ -21,7 +21,7 @@
                     <ul >
                         <a href="PaginaInicio.html"><li>Principal</li></a>
                         <div id="btnLogin">
-                            <a href="../LoginVentanas/Login.html"><li>Iniciar Sesion</li></a>
+                            <a href="LoginVentanas/Login.html"><li>Iniciar Sesion</li></a>
                         </div>
                         <div id="btnPerfil" class="d-none">
                             <a href="Perfiles/Perfil01.html"><li>Mi Perfil</li></a>
@@ -64,7 +64,7 @@
                 <h2>Articulos populares</h2>
                 <div class="row products">
                 <!--    Tarjeta de productos   -->
-                <div class="col-lg-2 col-md-4 col-sm-2 card tarjeta " >
+                    <div class="col-lg-2 col-md-4 col-sm-2 card tarjeta " >
                     <div class="card-body">
 
                         <img src="../Public/doggo.png" class="rounded mx-auto d-block" alt="..." width="87">
@@ -190,13 +190,67 @@
 
     
 <script>
+    function cargarProductos() {
+        $.ajax({
+            url: '../Controllers/productosMain.php', // Cambia esta URL al archivo PHP que devuelve los productos
+            method: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                if (response.length > 0) {
+                    var productsContainer = $('.products');
+                    productsContainer.empty(); // Limpiar cualquier contenido existente
+
+                    response.forEach(function(product) {
+                        var imagenBase64 = 'data:image/jpeg;base64,' + product.imagen;
+                    
+                    // Establecer la URL de datos base64 como fuente de la imagen
+                        $('#fotoPerfil').attr('src', imagenBase64);
+                        var cardHtml = `
+                            <div class="col-lg-2 col-md-4 col-sm-2 card tarjeta">
+                                <div class="card-body">
+                                    <img src="${imagenBase64}" class="rounded mx-auto d-block" alt="..." width="87">
+                                    <h5 class="card-title">${product.Nombre}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Calificación</h6>
+                                    <p class="card-text">${product.descrip}</p>
+                                    <p class="card-text">Precio: ${product.precio}</p>
+                                    <p class="card-text">Stock: ${product.stock}</p>
+
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">Agregar al carrito</div>
+                                            <div class="col">
+                                                <form action="../Controllers/addToCarrito.php" method="POST">
+                                                    <input type="hidden" name="product_id" value="${product.ID}">
+                                                    <button type="submit" class="btn btn-light">Agregar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        productsContainer.append(cardHtml);
+                    });
+                } else {
+                    var productsContainer = $('.productsVende');
+                    productsContainer.empty();
+                    console.log('No se encontraron productos');
+                }
+            },
+            error: function() {
+                $('#session-status').text('Error al verificar la sesión');
+            }
+        });
+    }
+
     $(document).ready(function() {
+        cargarProductos();
+
         $.ajax({
             url: '../Controllers/sesion.php', // Cambia esta URL al archivo PHP que verifica la sesión
             method: 'GET',
             success: function(response) {
                 if (response === 'success') {
-                    console.log()
                     $('#btnLogin').addClass('d-none');
                     $('#btnPerfil').removeClass('d-none');
                 } else {
@@ -208,11 +262,13 @@
             }
         });
 
-        $('#logout').click(function(e) {
-                e.preventDefault(); // Evita el comportamiento predeterminado del enlace
-                window.location.href = '../Controllers/logout.php'; // Redirige al script de logout
-        });
     });
+
+    $('#logout').click(function(e) {
+        e.preventDefault(); // Evita el comportamiento predeterminado del enlace
+        window.location.href = '../Controllers/logout.php'; // Redirige al script de logout
+    });
+
 </script>
 
 

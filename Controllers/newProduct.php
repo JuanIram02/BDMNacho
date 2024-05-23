@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Insertar producto en la base de datos con la imagen como BLOB
         $insert_query = "INSERT INTO `producto` (`Nombre`, `ID_User`, `ID_Cat`, `descrip`, `BoolVender`, `BoolStatus`, `precio`, `stock`, `feReg`, `feEdit`, `imagen`) 
-                 VALUES ('$nombre', '$id', NULL, '$descripcion', '$cotizable', '1', '$precio', '$stock', CURDATE(), CURDATE(), '$imagen_base64')";
+                 VALUES ('$nombre', '$id', '$categoria', '$descripcion', '$cotizable', '1', '$precio', '$stock', CURDATE(), NULL, '$imagen_base64')";
         if ($conn->query($insert_query) === TRUE) {
             echo "success";
         } else {

@@ -6,7 +6,7 @@
 
 <title>Mis Ventas</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="../StylesNewProduct.CSS">
@@ -20,20 +20,23 @@
 
     <div class="container-fluid" >
         <div class="row">
-            <div class="col-lg-2 col-md-3 sb Sidebar d-none d-sm-block"   >
+            <div class="col-lg-2 col-md-3 sb Sidebar d-none d-sm-block">
                        
-                    <div class="col">
-                        <ul>                            
-                            <a href="Perfil01.html"><li>Mi perfil</li></a>
-                            <a href="Chat.html"><li>Mis chats</li></a>
-                            <a href="../PaginaInicio.html"><li>Principal</li></a>
-                            
-                            <a href="../LoginVentanas/Login.html"><li>Cerrar Sesion</li></a>
+                <div class="col" >
+                    <ul >
+                        <a href="../PaginaInicio.html"><li>Principal</li></a>
+                        <div id="btnLogin">
+                            <a href="LoginVentanas/Login.html"><li>Iniciar Sesion</li></a>
+                        </div>
+                        <div id="btnPerfil" class="d-none">
+                            <a href="Perfiles/Perfil01.html"><li>Mi Perfil</li></a>
+                            <a href="Perfiles/Chat.html"><li>Mis Chats</li></a>
+                            <a href="Perfiles/Categorias.html"><li>Categorias</li></a>
+                            <a href="#" id="logout"><li>Cerrar Sesion</li></a>
+                        </div>                    
 
-                            
-
-                        </ul>
-                    </div>
+                    </ul>
+                </div>
 
 
             </div>
@@ -64,34 +67,39 @@
                    <h2>Carrito</h2><hr>
 
                    <div class="row h-125"> <!--                        <div class="col-2"><img src="../../Public/doggo.png" class="w-100 imgInfoP"  ></div>
-Fotos-->
-
-                        <div class="container-fluid">
-                    <div class="row justify-content-around rowCart" >
-                        <div class="col-2"><h3 class="ngt">Foto</h3></div>
-                        <div class="col-2"><h3 class="ngt">Nombre</h3></div>
-                        <div class="col-2"><h3 class="ngt">Cantidad</h3></div>
-                        <div class="col-2"><h3 class="ngt">Precio</h3></div>
-                   <hr> </div>
-                    <div class="row justify-content-around rowCart">
-                        <div class="col-2">     <img src="../../Public/doggo.png" class="w-25 imgInfoP"  ></div>
-                        <div class="col-2"><h4>Poster Perro</h4></div>
-                        <div class="col-2"><h4>x1</h4></div>
-                        <div class="col-2"><h4>$24.00</h4></div>
+Fotos-->            <div class="container-fluid">
+                        <div class="row justify-content-around rowCart" >
+                            <div class="col-2"><h3 class="ngt">Foto</h3></div>
+                            <div class="col-2"><h3 class="ngt">Nombre</h3></div>
+                            <div class="col-2"><h3 class="ngt">Cantidad</h3></div>
+                            <div class="col-2"><h3 class="ngt">Precio</h3></div>
+                            <hr> 
+                        </div>
+                    </div>
+                                        
+                    <div class="container-fluid carrito">
                         
-                        <hr> </div>
+                        <div class="row justify-content-around rowCart">
+                            <div class="col-2">     <img src="../../Public/doggo.png" class="w-25 imgInfoP"  ></div>
+                            <div class="col-2"><h4>Poster Perro</h4></div>
+                            <div class="col-2"><h4>x1</h4></div>
+                            <div class="col-2"><h4>$24.00</h4></div>
+                            
+                            <hr> 
+                        </div>
 
-                    <div class="row justify-content-around rowCart">
-                        <div class="col-2">     <img src="../../Public/doggo.png" class="w-25 imgInfoP"  ></div>
-                        <div class="col-2"><h4>Poster Perro</h4></div>
-                        <div class="col-2"><h4>x1</h4></div>
-                        <div class="col-2"><h4>$24.00</h4></div>
-                        
-                        <hr> </div>
+                        <div class="row justify-content-around rowCart">
+                            <div class="col-2">     <img src="../../Public/doggo.png" class="w-25 imgInfoP"  ></div>
+                            <div class="col-2"><h4>Poster Perro</h4></div>
+                            <div class="col-2"><h4>x1</h4></div>
+                            <div class="col-2"><h4>$24.00</h4></div>
+                            
+                            <hr> 
+                        </div>
 
                     </div>
 
-                    <div class="row justify-content-around rowCart">
+                    <div class="row justify-content-around rowCart total">
                         <div class="col-2"></div>
                         <div class="col-2"></div>
                         <div class="col-2"><h4>Total:</h4></div>
@@ -109,26 +117,44 @@ Fotos-->
                    <div class="modal fade" id="modalPago" tabindex="-1" role="dialog" aria-labelledby="modalPagoLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header bg-primary text-white">
                                 <h5 class="modal-title" id="modalPagoLabel">Datos de la Tarjeta</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <!-- Aquí puedes agregar campos para ingresar los datos de la tarjeta -->
-                                <label for="numeroTarjeta">Número de Tarjeta:</label>
-                                <input type="text" class="form-control" id="numeroTarjeta">
-
-                                <paypal>
-                                <!-- Otros campos y etiquetas según tus necesidades -->
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary">Realizar Pago</button>
+                                <form id="pagoForm" action="">
+                                    <input id="carrito_id" type="hidden" name="carrito_id">
+                                    <div class="form-group">
+                                        <label for="numeroTarjeta">Número de Tarjeta:</label>
+                                        <input type="text" class="form-control" id="numeroTarjeta" placeholder="Ingresa el número de tu tarjeta" required>
+                                        <label class="my-3" for="numeroTarjeta">Fecha de caducidad:</label>
+                                        <div class="d-flex">
+                                            <input type="text" class="form-control" id="numeroTarjeta" placeholder="Month" required>
+                                            <input type="text" class="form-control" id="numeroTarjeta" placeholder="Year" required>
+                                        </div>
+                                        <label class="my-3" for="numeroTarjeta">CVV:</label>
+                                        <input type="text" class="form-control" id="numeroTarjeta" placeholder="CVV" required>
+                                    </div>
+                                    <!-- Otros campos y etiquetas según tus necesidades -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        <button type="submit" class="btn btn-primary">Realizar Pago</button>
+                                    </div>
+                                </form>
+                                
+                                <!-- Opción de pago con PayPal -->
+                                <div class="text-center mt-3">
+                                    <h5>Pago con PayPal</h5>
+                                    <p>Puedes realizar el pago de forma segura con PayPal.</p>
+                                    <a href="#" class="btn btn-primary">Pagar con PayPal</a>
+                                </div>
                             </div>
                         </div>
+                        </div>
                     </div>
+                
                 </div>
 
                    <!--Tarjeta de producto-->
@@ -147,7 +173,99 @@ Fotos-->
     </div>
 
     
+<script>
+    function cargarCarrito() {
+        $.ajax({
+            url: '../../Controllers/cargaCarrito.php', // Cambia esta URL al archivo PHP que devuelve los productos
+            method: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                if (response.length > 0) {
+                    const carritoContainer = $('.carrito');
+                    carritoContainer.empty();
+                  
+                    let total = 0; // Inicializar el total
 
+                    response.forEach(function(producto) {
+
+                        const precioTotalProducto = producto.precio * producto.cantidad;
+                        total += precioTotalProducto;
+
+                        var imagenBase64 = 'data:image/jpeg;base64,' + producto.imagen;
+                        const productoHtml = `
+                            <div class="row justify-content-around rowCart">
+                                <div class="col-2">
+                                    <img src="${imagenBase64}" class="w-25 imgInfoP">
+                                </div>
+                                <div class="col-2">
+                                    <h4>${producto.Nombre}</h4>
+                                </div>
+                                <div class="col-2">
+                                    <h4>x${producto.cantidad}</h4>
+                                </div>
+                                <div class="col-2">
+                                    <h4>$${producto.precio}</h4>
+                                </div>
+                                <hr>
+                            </div>
+                        `;
+                        carritoContainer.append(productoHtml);
+                    });
+
+                    const totalContainer = $('.total');
+                    totalContainer.empty();
+
+                    const totalHtml = `
+                        <div class="row justify-content-around rowCart">
+                            <div class="col-2"></div>
+                            <div class="col-2"></div>
+                            <div class="col-2"><h4>Total:</h4></div>
+                            <div class="col-2"><h4>$${total.toFixed(2)}</h4></div>
+                            <hr>
+                        </div>
+                    `;
+                    totalContainer.append(totalHtml);
+                } else {
+                    $('.container-fluid').html('<p>El carrito está vacío.</p>');
+                }
+            },
+            error: function() {
+                $('#session-status').text('Error al cargar el carrito');
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        $.ajax({
+            url: '../../Controllers/sesion.php', // Cambia esta URL al archivo PHP que verifica la sesión
+            method: 'GET',
+            success: function(response) {
+                if (response === 'success') {
+                    $('#btnLogin').addClass('d-none');
+                    $('#btnPerfil').removeClass('d-none');
+                } else {
+                    console.log("No sesion")
+                    window.location.href = '../PaginaInicio.html'; // Redirige al script de logout
+                }
+            },
+            error: function() {
+                $('#session-status').text('Error al verificar la sesión');
+            }
+        });
+        
+        cargarCarrito();
+        $.ajax({
+            url: '../../Controllers/idCarrito.php', // Cambia esta URL al archivo PHP que verifica la sesión
+            method: 'GET',
+            success: function(response) {
+                $('#carrito_id').val(response)
+            },
+            error: function() {
+                $('#session-status').text('Error al verificar la sesión');
+            }
+        });
+    });
+</script>
 
 
 </body>

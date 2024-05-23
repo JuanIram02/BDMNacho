@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['contrasena'];
     $confirm_password = $_POST['confirmar_contrasena'];
     $birthdate = $_POST['fecha_nacimiento'];
-    $sex = $_POST['sexo'];
+    $sex = ($_POST['sexo'] == 0) ? "M" : "F";
     $profile_privacy = isset($_POST['perfil_privado']) ? 1 : 0;
     $account_type = $_POST['tipo_cuenta'];
 
@@ -36,15 +36,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $imagen_temp = $_FILES['img']['tmp_name'];
         $imagen_data = file_get_contents($imagen_temp);
         $imagen_base64 = base64_encode($imagen_data); // Codificar la imagen en base64
-
         // Insertar usuario en la base de datos con la imagen como BLOB
-        $insert_query = "INSERT INTO usuario (correo, usernm, Contra, feNacimiento, sexo, boolPublico, Rol, 'created-at', imagen) 
-                         VALUES ('$email', '$username', '$password', '$birthdate', '$sex', '$profile_privacy', '$account_type', 'today()', '$imagen_base64')";
+        $insert_query = "INSERT INTO usuario (correo, usernm, Contra, feNacimiento, sexo, boolPublico, Rol, feReg, imagen) 
+                         VALUES ('$email', '$username', '$password', '$birthdate', '$sex', '$profile_privacy', '$account_type', CURDATE(), '$imagen_base64')";
         
         if ($conn->query($insert_query) === TRUE) {
             session_start();
             $_SESSION['email'] = $email;
-            echo "success";
+            echo 'success';
         } else {
             http_response_code(500); 
             echo "Error al registrar usuario: " . $conn->error;

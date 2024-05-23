@@ -359,26 +359,22 @@
                     </div>
                     
                     <dialog id="dlg" class="dlgLista" >
-                            
-                            <div  class="container" id="modalProducto">
-                    
-                                <h3> Nueva lista</h3>
-                                <div class="row">
-                                    <div class="col-6">
-                                <h4>Nombre: <input  class="form-control mitadRowIF" placeholder="MiProducto" ></h4>
-                                <h5>Categoria: <input  class="form-control mitadRowIF" placeholder="MiProducto" ></h5></div>
-
-                                    <div class="col-6">
-                                        <h4>Agregar imagen:</h4>
-                                        <img src="../../Public/plus Icon.png" class=" w-25" alt="..."  ></div>
-                                </div>
-                                
-                    
-                                <button type="button" class="btn btn-light" id="btn2">Cerrar</button>
+                        
+                        <div  class="container" id="modalProducto">
+                
+                            <h3> Nueva lista</h3>
+                            <div class="row">
+                                <div class="col">
+                            <h4>Nombre: <input  class="form-control" placeholder="MiProducto" ></h4>
+                            <h5>Categoria: <input  class="form-control" placeholder="MiProducto" ></h5></div>                       
+                                    
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-light mx-2" id="btn2">Cerrar</button>
                                 <button type="button" class="btn btn-light" id="btn3">Crear</button>
-                            </div>   
+                            </div>                                
+                        </div>   
                     
-                        </dialog>
+                    </dialog>
                         
                 </div>
 
@@ -397,12 +393,29 @@
 
 
         <script src="pro01Fun.js"></script>
-        <script src="../principalFunctions.js"></script>
     
     
     </div>
 
     <script>
+        $("#diva").click(function(){
+                document.getElementById('dlg').showModal();
+            });
+
+        $("#btn2").click(function(){
+            document.getElementById('dlg').close();
+        });
+
+        $("#btn3").click(function(){
+            alert("Lista creada");
+            document.getElementById('dlg').close();
+        });
+
+        $('#logout').click(function(e) {
+            e.preventDefault(); // Evita el comportamiento predeterminado del enlace
+            window.location.href = '../../Controllers/logout.php'; // Redirige al script de logout
+        });
+
         function cargarProductos() {
             $.ajax({
                 url: '../../Controllers/productosVendedor.php', // Cambia esta URL al archivo PHP que devuelve los productos
@@ -414,10 +427,14 @@
                         productsContainer.empty(); // Limpiar cualquier contenido existente
 
                         response.forEach(function(product) {
+                            var imagenBase64 = 'data:image/jpeg;base64,' + product.imagen;
+                        
+                        // Establecer la URL de datos base64 como fuente de la imagen
+                            $('#fotoPerfil').attr('src', imagenBase64);
                             var cardHtml = `
                                 <div class="col-lg-2 col-md-4 col-sm-2 card tarjeta">
                                     <div class="card-body">
-                                        <img src="../../Public/doggo.png" class="rounded mx-auto d-block" alt="..." width="87">
+                                        <img src="${imagenBase64}" class="rounded mx-auto d-block" alt="..." width="87">
                                         <h5 class="card-title">${product.Nombre}</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">Calificación</h6>
                                         <p class="card-text">${product.descrip}</p>
@@ -428,7 +445,7 @@
                                             <div class="row">
                                                 <div class="col">Agregar a una lista</div>
                                                 <div class="col">
-                                                    <a href="NewProd.html"><button type="button" class="btn btn-light">Editar</button></a>
+                                                    <a href="NewProd.html"><button type="button" class="btn btn-light">Agregar</button></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -438,6 +455,8 @@
                             productsContainer.append(cardHtml);
                         });
                     } else {
+                        var productsContainer = $('.productsVende');
+                        productsContainer.empty();
                         console.log('No se encontraron productos');
                     }
                 },
@@ -462,11 +481,6 @@
                 error: function() {
                     $('#session-status').text('Error al verificar la sesión');
                 }
-            });
-    
-            $('#logout').click(function(e) {
-                    e.preventDefault(); // Evita el comportamiento predeterminado del enlace
-                    window.location.href = '../../Controllers/logout.php'; // Redirige al script de logout
             });
 
             $.ajax({

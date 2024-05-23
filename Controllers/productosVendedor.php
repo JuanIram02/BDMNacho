@@ -22,7 +22,6 @@ if ($result->num_rows > 0) {
     }
 } 
 else{
-    echo 'no products';
 }
 
 // Cerrar la declaración y la conexión
